@@ -1,4 +1,5 @@
 using FetchDataApiMbBank.Jobs;
+using FetchDataApiMbBank.Services;
 using Quartz;
 using System.Text.Json.Serialization;
 
@@ -37,6 +38,9 @@ namespace FetchDataApiMbBank
 						)
 					);
 			});
+
+			//Add DI 
+			builder.Services.AddSingleton<MbBankService>();
 
 			var app = builder.Build();
 

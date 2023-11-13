@@ -16,6 +16,7 @@ namespace FetchDataApiMbBank.Jobs
 
 		public async Task Execute(IJobExecutionContext context)
 		{
+			return;
 			// This job scheduler help to saving sessionId of Mb bank
 			await mbBankService.GetHistoryTransaction();
 			return;

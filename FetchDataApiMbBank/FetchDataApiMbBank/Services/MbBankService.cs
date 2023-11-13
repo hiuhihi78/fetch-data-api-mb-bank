@@ -22,7 +22,6 @@ namespace FetchDataApiMbBank.Services
 			client.DefaultRequestHeaders.Add("Authorization", "Basic " + configuration["MbBank:BasicAuthBase64"]);
 		}
 
-
 		public async Task<MbBankResponeHistoryTransactionDataDTO?> GetHistoryTransaction()
 		{
 			MbBankRequestBodyHistoryTransactionDTO mbBank = new MbBankRequestBodyHistoryTransactionDTO()
@@ -33,6 +32,34 @@ namespace FetchDataApiMbBank.Services
 				fromDate = DateTime.Now.AddDays(-5).ToString("dd/MM/yyyy"),
 				sessionId = configuration["MbBank:SessionId"],
 				toDate = DateTime.Now.ToString("dd/MM/yyyy")
+			};
+
+			var jsonData = JsonSerializer.Serialize(mbBank);
+			var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+			var request = await client.PostAsync(configuration["MbBank:ApiHistoryTransaction"], content);
+
+			var respone = await request.Content.ReadAsStringAsync();
+
+			var options = new JsonSerializerOptions();
+			options.Converters.Add(new JsonSerializerDateTimeConverter());
+			options.Converters.Add(new JsonSerializerIntConverter());
+
+			var data = JsonSerializer.Deserialize<MbBankResponeHistoryTransactionDataDTO>(respone, options);
+
+			return data;
+		}
+
+		public async Task<MbBankResponeHistoryTransactionDataDTO?> GetHistoryTransaction(DateTime? fromDate, DateTime? toDate)
+		{
+			
+			MbBankRequestBodyHistoryTransactionDTO mbBank = new MbBankRequestBodyHistoryTransactionDTO()
+			{
+				accountNo = configuration["MbBank:AccountNo"],
+				deviceIdCommon = configuration["MbBank:DeviceIdCommon"],
+				refNo = configuration["MbBank:RefNo"],
+				fromDate = fromDate?.ToString("dd/MM/yyyy"),
+				sessionId = configuration["MbBank:SessionId"],
+				toDate = toDate?.ToString("dd/MM/yyyy")
 			};
 
 			var jsonData = JsonSerializer.Serialize(mbBank);
