@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Trash\\fetch-data-api-mb-bank\\FetchDataApiMbBank\\FetchDataApiMbBank\\FetchDataApiMbBank.csproj": {}
+    "D:\\Trash\\api-mb-bank\\FetchDataApiMbBank\\FetchDataApiMbBank\\FetchDataApiMbBank.csproj": {}
   },
   "projects": {
-    "D:\\Trash\\fetch-data-api-mb-bank\\FetchDataApiMbBank\\FetchDataApiMbBank\\FetchDataApiMbBank.csproj": {
+    "D:\\Trash\\api-mb-bank\\FetchDataApiMbBank\\FetchDataApiMbBank\\FetchDataApiMbBank.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Trash\\fetch-data-api-mb-bank\\FetchDataApiMbBank\\FetchDataApiMbBank\\FetchDataApiMbBank.csproj",
+        "projectUniqueName": "D:\\Trash\\api-mb-bank\\FetchDataApiMbBank\\FetchDataApiMbBank\\FetchDataApiMbBank.csproj",
         "projectName": "FetchDataApiMbBank",
-        "projectPath": "D:\\Trash\\fetch-data-api-mb-bank\\FetchDataApiMbBank\\FetchDataApiMbBank\\FetchDataApiMbBank.csproj",
+        "projectPath": "D:\\Trash\\api-mb-bank\\FetchDataApiMbBank\\FetchDataApiMbBank\\FetchDataApiMbBank.csproj",
         "packagesPath": "C:\\Users\\dell\\.nuget\\packages\\",
-        "outputPath": "D:\\Trash\\fetch-data-api-mb-bank\\FetchDataApiMbBank\\FetchDataApiMbBank\\obj\\",
+        "outputPath": "D:\\Trash\\api-mb-bank\\FetchDataApiMbBank\\FetchDataApiMbBank\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -45,6 +45,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Quartz": {
+              "target": "Package",
+              "version": "[3.7.0, )"
+            },
+            "Quartz.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[3.7.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
