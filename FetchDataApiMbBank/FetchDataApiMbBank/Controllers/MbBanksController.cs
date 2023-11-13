@@ -1,4 +1,5 @@
-﻿using DTOs.MbBank;
+﻿using DTOs.Bank;
+using DTOs.MbBank;
 using FetchDataApiMbBank.Comons;
 using FetchDataApiMbBank.Services;
 using Microsoft.AspNetCore.Http;
@@ -17,7 +18,7 @@ namespace FetchDataApiMbBank.Controllers
 			this.mbBankService = mbBankService;
 		}
 
-		#region History Transaction
+		#region History Transaction with account in appsettings
 		[HttpGet("HistoryTransaction")]
 		public async Task<object?> GetHistoryTransaction(string fromDate, string toDate)
 		{
@@ -59,5 +60,36 @@ namespace FetchDataApiMbBank.Controllers
 			}
 		}
 		#endregion
+
+		#region Inquiry Account Name with accout in appsettings
+		[HttpGet("InquiryAccountName")]
+		public async Task<object?> InquiryAccountName(string bankCode, string creditAccount)
+		{
+			try
+			{
+				return await mbBankService.InquiryAccountName(bankCode, creditAccount);	
+			}
+			catch (Exception ex)
+			{
+				return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+			}
+		}
+		#endregion
+
+		#region Inquiry Account Name
+		[HttpPost("InquiryAccountName")]
+		public async Task<object?> InquiryAccountName(MbBankRequestBodyInquiryAccountNameDTO request)
+		{
+			try
+			{
+				return await mbBankService.InquiryAccountName(request);
+			}
+			catch (Exception ex)
+			{
+				return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+			}
+		}
+		#endregion
+
 	}
 }

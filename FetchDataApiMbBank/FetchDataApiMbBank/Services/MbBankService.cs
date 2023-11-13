@@ -52,7 +52,7 @@ namespace FetchDataApiMbBank.Services
 		public async Task<MbBankResponeHistoryTransactionDataDTO?> GetHistoryTransaction(DateTime? fromDate, DateTime? toDate)
 		{
 			
-			MbBankRequestBodyHistoryTransactionDTO mbBank = new MbBankRequestBodyHistoryTransactionDTO()
+			MbBankRequestBodyHistoryTransactionDTO dataBody = new MbBankRequestBodyHistoryTransactionDTO()
 			{
 				accountNo = configuration["MbBank:AccountNo"],
 				deviceIdCommon = configuration["MbBank:DeviceIdCommon"],
@@ -62,7 +62,7 @@ namespace FetchDataApiMbBank.Services
 				toDate = toDate?.ToString("dd/MM/yyyy")
 			};
 
-			var jsonData = JsonSerializer.Serialize(mbBank);
+			var jsonData = JsonSerializer.Serialize(dataBody);
 			var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
 			var request = await client.PostAsync(configuration["MbBank:ApiHistoryTransaction"], content);
 
@@ -77,9 +77,9 @@ namespace FetchDataApiMbBank.Services
 			return data;
 		}
 
-		public async Task<MbBankResponeHistoryTransactionDataDTO?> GetHistoryTransaction(MbBankRequestBodyHistoryTransactionDTO mbBank)
+		public async Task<MbBankResponeHistoryTransactionDataDTO?> GetHistoryTransaction(MbBankRequestBodyHistoryTransactionDTO dataBody)
 		{
-			var jsonData = JsonSerializer.Serialize(mbBank);
+			var jsonData = JsonSerializer.Serialize(dataBody);
 			var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
 			var request = await client.PostAsync(configuration["MbBank:ApiHistoryTransaction"], content);
 
@@ -94,22 +94,47 @@ namespace FetchDataApiMbBank.Services
 			return data;
 		}
 
-		public async Task<MbBankResponse?> InquiryAccountName(BankInquiryAccountNameRequestDTO bankInquiryAccountNameRequestDTO)
+		public async Task<MbBankResponse?> InquiryAccountName(string bankCode, string creditAccount)
 		{
-			MbBankRequestBodyInquiryAccountNameDTO mbBank = new MbBankRequestBodyInquiryAccountNameDTO()
+			MbBankRequestBodyInquiryAccountNameDTO dataBody = new MbBankRequestBodyInquiryAccountNameDTO()
 			{
-				bankCode = bankInquiryAccountNameRequestDTO.BankId,
-				creditAccount = bankInquiryAccountNameRequestDTO.CreditAccount,
+				bankCode = bankCode,
+				creditAccount = creditAccount,
 				creditAccountType = "ACCOUNT",
 				debitAccount = configuration["MbBank:AccountNo"],
 				deviceIdCommon = configuration["MbBank:DeviceIdCommon"],
 				refNo = configuration["MbBank:RefNo"],
 				remark = string.Empty,
 				sessionId = configuration["MbBank:SessionId"],
-				type = bankInquiryAccountNameRequestDTO.BankId == Constants.BANK_ID_MB_BANK? "INHOUSE" : "FAST"
+				type = bankCode == Constants.BANK_ID_MB_BANK ? "INHOUSE" : "FAST"
 			};
 
-			var jsonData = JsonSerializer.Serialize(mbBank);
+			var jsonData = JsonSerializer.Serialize(dataBody);
+			var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+			var request = await client.PostAsync(configuration["MbBank:ApiInquiryAccountName"], content);
+
+			var respone = await request.Content.ReadAsStringAsync();
+
+			var options = new JsonSerializerOptions();
+			options.Converters.Add(new JsonSerializerDateTimeConverter());
+			options.Converters.Add(new JsonSerializerIntConverter());
+
+			var data = JsonSerializer.Deserialize<MbBankResponeInquiryAccountNameDTO>(respone, options);
+
+			if (data == null) return null;
+
+			MbBankResponse mbBankResponse = new MbBankResponse()
+			{
+				Code = data.result.responseCode,
+				Result = data.benName
+			};
+
+			return mbBankResponse;
+		}
+
+		public async Task<MbBankResponse?> InquiryAccountName(MbBankRequestBodyInquiryAccountNameDTO dataBody)
+		{
+			var jsonData = JsonSerializer.Serialize(dataBody);
 			var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
 			var request = await client.PostAsync(configuration["MbBank:ApiInquiryAccountName"], content);
 
