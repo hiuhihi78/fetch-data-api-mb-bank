@@ -16,9 +16,9 @@ This application inclues 4 api:
 
 ## Configuration
 - Step 1: Login your Mb Bank account to get seessionId [click here!](https://online.mbbank.com.vn/pl/login)
-- Step 2: Chose [Thông tin tài khoản][Tài khoản nguồn]
-- Step 3: Open Developer Tools[F12] -> Chose Network
-- Step 4: Click into [Truy vấn]
+- Step 2: Chose [Thông tin tài khoản][Tài khoản nguồn] [click here!](https://online.mbbank.com.vn/information-account/source-account)
+- Step 3: Open Developer Tools[F12] -> Chose [Network]
+- Step 4: Click into [Truy vấn] button
   After that you can see
 ![f12](https://github.com/hiuhihi78/fetch-data-api-mb-bank/assets/85660078/6ee0e42a-283a-42b0-bf83-32f142d43499)
 - Step 5: Open project and open appsetting.cs file
@@ -35,7 +35,7 @@ This application inclues 4 api:
 ##### URL Parameter
 - "fromDate": "string" (dd/MM/yyyy)
 - "toDate": "string" (dd/MM/yyyy)
-#### Sample
+#### Example
 ![simple-1](https://github.com/hiuhihi78/fetch-data-api-mb-bank/assets/85660078/00fc791c-0bb9-401a-8543-6ba3f3e0d5a8)
 
 <hr/>
@@ -78,6 +78,9 @@ This api to search account name by bank code and account bank number
 ##### URL Parameter
 - "bankCode": "string" 
 - "creditAccount": "string" (Account number)
+
+##### Example
+![accountname](https://github.com/hiuhihi78/fetch-data-api-mb-bank/assets/85660078/0edfe312-ee59-4db3-99bb-1878d4a865d9)
 
 <hr/>
 
