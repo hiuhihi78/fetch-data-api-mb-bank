@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+txxGZy05i1xpW9vgu58454BSaAZn2zqJt5PVjlImLNZbdhSd3DFF3IGaplXAEmm9gZzgM0IQ6smbvnnsxHMBg==",
+  "dgSpecHash": "mAeOh6qz6AObakFYVVKCVE/hzgIbIqSpGaze/5t96sQ8vrOWG0u5YL/wb5F0CjzE8v8Xj7fpSNJMN7m7zkMMhw==",
   "success": true,
-  "projectFilePath": "D:\\Trash\\api-mb-bank\\FetchDataApiMbBank\\FetchDataApiMbBank\\FetchDataApiMbBank.csproj",
+  "projectFilePath": "D:\\Trash\\mb-bank\\FetchDataApiMbBank\\FetchDataApiMbBank.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dell\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\dell\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
