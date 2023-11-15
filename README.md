@@ -1,4 +1,4 @@
-# fetch-data-api-mb-bank
+# Fetch data api Mb bank
 
 This repository it help get data of api MB bank includes:
 + Get history transaction
@@ -76,6 +76,30 @@ This api to search account name by bank code and account bank number
 | Bưu điện Liên Việt (LPB)  | 970449  |
 
 #### URL Parameter
+- "bankCode": "string" 
+- "creditAccount": "string"
+
+<hr/>
+
+### [POST] /api/MbBanks/InquiryAccountName
+#### Request Body
+```json
+{
+  "bankCode": "string",
+  "creditAccount": "string",
+  "creditAccountType": "string",
+  "debitAccount": "string",
+  "deviceIdCommon": "string",
+  "refNo": "string",
+  "remark": "string",
+  "sessionId": "string",
+  "type": "string"
+}
+```
+
+## More api can make in future
+![fu](https://github.com/hiuhihi78/fetch-data-api-mb-bank/assets/85660078/afdf8cdf-f375-4850-968d-6cd9fefc125d)
 
 
+### &copy; 2023 hiuhihi78 - student from FPT University
 
