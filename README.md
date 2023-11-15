@@ -15,7 +15,19 @@ This application inclues 4 api:
 - [POST] /api/MbBanks/InquiryAccountName
 
 ## Configuration
-- Step 1 : Login your Mb Bank account to get seessionId [click here!](https://online.mbbank.com.vn/pl/login)
+- Step 1: Login your Mb Bank account to get seessionId [click here!](https://online.mbbank.com.vn/pl/login)
+- Step 2: Chose [Thông tin tài khoản][Tài khoản nguồn]
+- Step 3: Open Developer Tools[F12] -> Chose Network
+- Step 4: Click into [Truy vấn]
+  After that you can see
+![f12](https://github.com/hiuhihi78/fetch-data-api-mb-bank/assets/85660078/edadcb7f-9261-4d1e-92d4-47eb316fc8bd)
+- Step 5: Open project and open appsetting.cs file
+![appsettings](https://github.com/hiuhihi78/fetch-data-api-mb-bank/assets/85660078/5a12e218-0059-40e1-bfb8-40a2c045515f)
+- Step 6: Copy and paste some fields in step 5 into appsettings.cs file <br />
+  [AccountNo]<br />
+  [DeviceIdCommon]<br />
+  [RefNo]<br />
+  [SessionId]<br />
 
 ## Usage
 ### [GET] /api/MbBanks/HistoryTransaction
