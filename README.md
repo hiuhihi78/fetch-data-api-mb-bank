@@ -20,10 +20,10 @@ This application inclues 4 api:
 - Step 3: Open Developer Tools[F12] -> Chose Network
 - Step 4: Click into [Truy vấn]
   After that you can see
-![f12](https://github.com/hiuhihi78/fetch-data-api-mb-bank/assets/85660078/edadcb7f-9261-4d1e-92d4-47eb316fc8bd)
+![f12](https://github.com/hiuhihi78/fetch-data-api-mb-bank/assets/85660078/6ee0e42a-283a-42b0-bf83-32f142d43499)
 - Step 5: Open project and open appsetting.cs file
-![appsettings](https://github.com/hiuhihi78/fetch-data-api-mb-bank/assets/85660078/5a12e218-0059-40e1-bfb8-40a2c045515f)
-- Step 6: Copy and paste some fields in step 5 into appsettings.cs file <br />
+![appsettings](https://github.com/hiuhihi78/fetch-data-api-mb-bank/assets/85660078/78453256-fa44-4dd4-833d-4e67e37811cc)
+- Step 6: Copy and paste some fields in step 4 into appsettings.cs file <br />
   [AccountNo]<br />
   [DeviceIdCommon]<br />
   [RefNo]<br />
@@ -31,17 +31,17 @@ This application inclues 4 api:
 
 ## Usage
 
-### [GET] /api/MbBanks/HistoryTransaction
-#### URL Parameter
+#### [GET] /api/MbBanks/HistoryTransaction
+##### URL Parameter
 - "fromDate": "string" (dd/MM/yyyy)
 - "toDate": "string" (dd/MM/yyyy)
-### Sample
+#### Sample
 ![simple-1](https://github.com/hiuhihi78/fetch-data-api-mb-bank/assets/85660078/00fc791c-0bb9-401a-8543-6ba3f3e0d5a8)
 
 <hr/>
 
-### [POST] /api/MbBanks/HistoryTransaction
-#### Request Body
+#### [POST] /api/MbBanks/HistoryTransaction
+##### Request Body
 ```json
 {
   "accountNo": "string",
@@ -55,7 +55,7 @@ This application inclues 4 api:
 
 <hr/>
 
-### [GET] /api/MbBanks/InquiryAccountName
+#### [GET] /api/MbBanks/InquiryAccountName
 This api to search account name by bank code and account bank number
 
 | Bank  | BankCode |
@@ -75,14 +75,14 @@ This api to search account name by bank code and account bank number
 | Sài Gòn Hà Nội (SHB)  | 970443  |
 | Bưu điện Liên Việt (LPB)  | 970449  |
 
-#### URL Parameter
+##### URL Parameter
 - "bankCode": "string" 
-- "creditAccount": "string"
+- "creditAccount": "string" (Account number)
 
 <hr/>
 
-### [POST] /api/MbBanks/InquiryAccountName
-#### Request Body
+#### [POST] /api/MbBanks/InquiryAccountName
+##### Request Body
 ```json
 {
   "bankCode": "string",
@@ -97,9 +97,9 @@ This api to search account name by bank code and account bank number
 }
 ```
 
-## More api can make in future
+### More api can make in future
 ![fu](https://github.com/hiuhihi78/fetch-data-api-mb-bank/assets/85660078/afdf8cdf-f375-4850-968d-6cd9fefc125d)
 
 
-### &copy; 2023 hiuhihi78 - student from FPT University
+## &copy; 2023 - hiuhihi78 - A student from FPT University
 
