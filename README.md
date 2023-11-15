@@ -77,7 +77,7 @@ This api to search account name by bank code and account bank number
 
 ##### URL Parameter
 - "bankCode": "string" 
-- "creditAccount": "string" (Account number)
+- "creditAccount": "string" (Bank account number)
 
 ##### Example
 ![accountname](https://github.com/hiuhihi78/fetch-data-api-mb-bank/assets/85660078/0edfe312-ee59-4db3-99bb-1878d4a865d9)
